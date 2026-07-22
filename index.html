@@ -23,16 +23,19 @@
     --rose-brume:#fff0f5;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
   body{
     font-family:'Fredoka',sans-serif;
     background:linear-gradient(170deg,var(--lav-brume) 0%,var(--lav-pale) 55%,var(--lav-clair) 100%);
+    background-attachment:fixed;
     color:var(--texte);
-    min-height:100vh;
+    min-height:100dvh;
     display:flex;
     align-items:center;
     justify-content:center;
     padding:20px 16px;
     transition:background 1s ease;
+    -webkit-tap-highlight-color:transparent;
   }
   body.rose{
     background:linear-gradient(170deg,var(--rose-brume) 0%,var(--rose-pale) 55%,var(--rose-clair) 100%);
@@ -49,6 +52,7 @@
     align-items:center;
     justify-content:center;
     gap:20px;
+    padding:24px 20px;
     cursor:pointer;
     transition:opacity .8s ease;
   }
@@ -204,6 +208,21 @@
   .btn:active{transform:translateY(5px);box-shadow:0 0 0 #453869}
   .btn.doux{background:var(--accent);box-shadow:0 5px 0 #8b74bd;margin-top:4px}
   .btn.doux:hover{box-shadow:0 3px 0 #8b74bd}
+  .lien{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    border:2.5px solid var(--accent);
+    color:var(--lav-fonce);
+    border-radius:16px;
+    padding:12px;
+    font-size:.95rem;
+    margin-bottom:14px;
+    transition:background .15s ease,color .15s ease;
+  }
+  .lien:hover{background:var(--accent);color:#fff}
+  .lien small{display:block;font-size:.78rem;opacity:.75;margin-top:2px}
+
   .retour{
     display:block;width:100%;text-align:center;
     background:none;border:none;
@@ -246,6 +265,34 @@
   }
 
   .erreur{color:#c0392b;font-size:.85rem;text-align:center;margin-top:12px;display:none}
+  @media (max-width:430px){
+    body{padding:0}
+    .carte{border-radius:0;min-height:100dvh;max-width:none;box-shadow:none;display:flex;flex-direction:column}
+    .corps{padding:22px 18px 30px;flex:1;display:flex;flex-direction:column;justify-content:center}
+    .bandeau{padding:14px}
+    .bandeau img{width:88px}
+    h1{font-size:1.75rem}
+    .sous{font-size:.92rem;margin-bottom:18px}
+    .pas{font-size:.72rem}
+    .heure{font-size:1.35rem}
+    .billet{padding:14px 15px;margin-bottom:18px}
+    .choix{padding:15px 15px;font-size:.95rem}
+    .boutons{gap:10px}
+    .lien{padding:14px 12px}
+    .btn{font-size:1.25rem;padding:15px}
+    textarea{min-height:80px;font-size:16px}
+    #e4.on{margin:-22px -18px;padding:26px 18px 32px}
+    .merci .gros{font-size:2rem}
+    .merci img{width:min(62vw,180px)}
+    #intro h2{font-size:2.1rem}
+    #intro img{width:min(66vw,240px)}
+  }
+  @media (max-width:360px){
+    h1{font-size:1.55rem}
+    .heure{font-size:1.2rem}
+    .choix{font-size:.9rem}
+    .merci .gros{font-size:1.8rem}
+  }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -287,6 +334,10 @@
         <div class="duree">direct · 4h58 · european sleeper</div>
         <div class="prix"><span>2e classe dès</span><b>29,99 €</b></div>
       </div>
+      <a class="lien" href="https://www.b-europe.com/FR/Acheter/Billets?autoactivatestep2=true&origin=FRPNO&dest=BELGG&traveltype=OneWay&outbound=26%2F07%2F2026&outboundt=7&outboundtp=DepartureTime&comfortclass=2&compactQsm=false&ticketlanguage=&travelparty=%257B%2522P%2522%253A%255B%257B%2522T%2522%253A%2522A%2522%252C%2522BDT%2522%253A%2522%2522%257D%255D%252C%2522M%2522%253Afalse%257D#PassengerInfo" target="_blank" rel="noopener">
+        Ouvrir la page de réservation
+        <small>Paris Nord → Liège · 26 juillet · tout est déjà rempli</small>
+      </a>
       <button class="btn" data-va="e3">Passer à ma réponse</button>
       <button class="retour" data-va="e1">← revenir</button>
     </section>
