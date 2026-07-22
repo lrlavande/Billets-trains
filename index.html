@@ -93,6 +93,7 @@
     transition:background 1s ease;
   }
   body.rose .bandeau{background:linear-gradient(160deg,var(--rose-fonce),var(--rose-moyen))}
+  body.rose .bandeau{display:none}
   .bandeau img{
     width:110px;
     border-radius:18px;
@@ -268,7 +269,7 @@
 
     <section class="etape on" id="e1">
       <p class="pas">étape 1 sur 3</p>
-      <h1>Coucou toi ♡</h1>
+      <h1>Hello Matteo ♡</h1>
       <p class="sous">J'ai un tout petit service à te demander.<br>Ça prend deux minutes, promis.</p>
       <button class="btn" data-va="e2">D'accord, je t'écoute</button>
     </section>
@@ -349,6 +350,12 @@ function fermer(avecSon){
 
 intro.addEventListener('click', () => fermer(true));
 setTimeout(() => fermer(false), 7000);
+
+function relance(){
+  if (son.paused && !yippee.currentTime) son.play().catch(() => {});
+}
+document.addEventListener('click', relance);
+document.addEventListener('keydown', relance);
 
 function va(id){
   document.querySelectorAll('.etape').forEach(s => s.classList.remove('on'));
